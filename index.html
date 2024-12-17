@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Facts Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?technology');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #007BFF;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 20px;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Technology Facts Generator</h1>
+        <button id="generateFact">Generate Fact</button>
+        <p id="factDisplay">Click the button to see a technology fact!</p>
+    </div>
+    <script>
+        const facts = [
+            "The first computer virus was created in 1983 and was called 'Elk Cloner'.",
+            "The first computer mouse was made of wood, invented by Doug Engelbart in the 1960s.",
+            "The first website ever created is still online at info.cern.ch.",
+            "The term 'bug' in computer programming came from an actual moth found in a Harvard Mark II computer in 1947.",
+            "About 90% of the world's currency exists only on computers.",
+            "The first iPhone was released in 2007 and didn't have copy and paste functionality until 2009.",
+            "The average person types between 38-40 words per minute, while professional typists can reach speeds of over 120 words per minute.",
+            "More than 500 hours of content is uploaded to YouTube every minute.",
+            "The first text message was sent in 1992 and simply said 'Merry Christmas'.",
+            "The QWERTY keyboard layout was designed in 1868 specifically to slow down typists to prevent jamming mechanical typewriters."
+        ];
+
+        document.getElementById('generateFact').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.innerText = facts[randomIndex];
+            factDisplay.style.animation = 'none';
+            setTimeout(() => factDisplay.style.animation = '', 10); // Restart animation
+        });
+    </script>
+</body>
+</html>
